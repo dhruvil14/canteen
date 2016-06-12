@@ -63,7 +63,7 @@ else if(isset($_POST['blank'])){
 		$row = $query->fetch(PDO::FETCH_ASSOC);
 		if($adet < $row['adet']) $signal = '-';
 		$fark = abs($adet - $row['adet']);
-		$query2 = $db->prepare("UPDATE siparisler SET adet = adet ". $signal ." :fark WHERE s_id = :s_id");
+		$query2 = $db->prepare("UPDATE siparisler SET adet = adet ". $signal ." :fark, onay = 0 WHERE s_id = :s_id");
 		$query2->bindParam(':s_id',$row['s_id']);
 		$query2->bindParam(':fark',$fark);
 		$query2->execute();
