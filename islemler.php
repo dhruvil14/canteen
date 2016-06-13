@@ -27,6 +27,18 @@ else if(isset($_POST['kayit'])){
 	header('location:giris.php');
 }
 
+else if(isset($_POST['urunEkleBlank'])){
+	$adi = trim($_POST['adi']);
+	$turu = trim($_POST['turu']);
+	$fiyati = trim($_POST['fiyati']);
+	$query = $db->prepare("INSERT INTO gidalar VALUES ('',:adi,:turu,:fiyati)");
+	$query->bindParam(':adi',$adi);
+	$query->bindParam(':turu',$turu);
+	$query->bindParam(':fiyati',$fiyati);
+	$query->execute();
+	if($query) echo "Ürün Eklendi";
+}
+
 else if(isset($_GET['cikis'])){
 	setcookie('id','',time() - 1);
 	header('location:giris.php');
