@@ -12,7 +12,7 @@ require 'header.php';
 						</tr>
 						<tr>
 							<td style="text-align:right;">Fiyatı :</td>
-							<td><input type="number" class="form-control boxes" name="fiyati"></td>
+							<td><input type="number" class="form-control boxes" name="fiyati" placeholder="Fiyat" min="1"></td>
 						</tr>
 						<tr>
 							<td style="text-align:right;">Türü :</td>

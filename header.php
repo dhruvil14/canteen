@@ -133,8 +133,18 @@ if(isset($_COOKIE['id'])){
 		.ownerPanel table{
 			font:19px Calibri Light;
 		}
+		.ownerPanel table tbody td, .ownerPanel table thead th {
+			padding-left:50px;
+			padding-top:30;
+		}
+		.ownerPanel table tbody td:nth-child(4){
+			white-space:nowrap;
+		}
 		.boxes{
 			width:250px;
+		}
+		.price{
+			background-color:#000;
 		}
 	</style>
 	<script>
@@ -184,23 +194,27 @@ if(isset($_COOKIE['id'])){
 			}
 
 			$.urun_ekle = function(){
-				var formdata = $(".add_panel form").serializeArray();
-				var data = {};
-				var values = [];
-				var i = 0;
-				$(formdata).each(function(index, obj){
-					data[obj.name] = obj.value;
-					values[i] = obj.value;
-					i++;
-				});
-				$.ajax({
-					type:"POST",
-					url:"islemler.php",
-					data:{adi:values[0],fiyati:values[1],turu:values[2],urunEkleBlank:''},
-					success:function(data){
-						alert(data);
-					}
-				});
+				if($('.add_panel form input[type=text]').val() == '' || $('.add_panel form input[type=password]').val() == ''){
+					alert('Boş bırakmayınız');
+				}else{
+					var formdata = $(".add_panel form").serializeArray();
+					var data = {};
+					var values = [];
+					var i = 0;
+					$(formdata).each(function(index, obj){
+						data[obj.name] = obj.value;
+						values[i] = obj.value;
+						i++;
+					});
+					$.ajax({
+						type:"POST",
+						url:"islemler.php",
+						data:{adi:values[0],fiyati:values[1],turu:values[2],urunEkleBlank:''},
+						success:function(data){
+							alert(data);
+						}
+					});
+				}
 				return false;
 			}
 
@@ -346,7 +360,7 @@ $.listOrder('');
 <body>
 	<div class="dev-row">
 		<div class="col-xs-12 header" style="background-color:#306491;height:90px;">
-			<a href="index.php"><img src="images/logo.png" width="210" style="margin-top:2px;margin-left:-15px;"></a>
-			<div class="kisi" style="color:#e1e3e0;float:right;font:26px Calibri Light;margin-top:30px;<?php if(!isset($_COOKIE['id'])) echo 'display:none;'; ?>"><?php echo $ad_soyad ?> | <i class="fa fa-plus-circle" alt="Ürün Ekle" title="Ürün Ekle" style="font-size:21px;margin-left:5px;cursor:pointer;" onclick="javascript:window.location='urun_ekle.php';"></i> |<i class="fa fa-power-off" alt="Çıkış" title="Çıkış" style="font-size:21px;margin-left:5px;cursor:pointer;" onclick="javascript:window.location='islemler.php?cikis';"></i></div>
+			<a href="index.php"><img src="images/logo.png" width="200" style="margin-top:5px;margin-left:-15px;-webkit-transform:rotate(0deg);"></a>
+			<div class="kisi" style="color:#e1e3e0;float:right;font:26px Calibri Light;margin-top:30px;<?php if(!isset($_COOKIE['id'])) echo 'display:none;'; ?>"><?php echo $ad_soyad ?> | <i class="fa fa-plus-circle" alt="Ürün Ekle" title="Ürün Ekle" style="font-size:21px;cursor:pointer;" onclick="javascript:window.location='urun_ekle.php';"></i> |<i class="fa fa-power-off" alt="Çıkış" title="Çıkış" style="font-size:21px;margin-left:5px;cursor:pointer;" onclick="javascript:window.location='islemler.php?cikis';"></i></div>
 		</div>
 	</div>	

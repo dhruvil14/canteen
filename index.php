@@ -22,31 +22,32 @@ else {
 				
 			</div>
 
-		<!-- Modal -->
-		<form class="siparis_form">
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Sepete Ekle</h4>
-		      </div>
-		      <div class="modal-body">
-		      
-		      <span style="font:21px Calibri Light">Kaç adet ?</span>
-		      	<input type="text" class="form-control tane" style="margin-top:5px;">
-		      	<input type="hidden" class="id" value="">
-		      	<input type="hidden" class="ad" value="">
-		      	<input type="hidden" class="fiyat" value="">
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
-		        <input type="submit" value="Ekle" class="btn btn-primary add">
-		      </div>
-		    </div>
-		  </div>
-		</div>
-		</form>
+			<!-- Modal -->
+			<form class="siparis_form">
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Sepete Ekle</h4>
+							</div>
+							<div class="modal-body">
+								
+								<span style="font:21px Calibri Light">Kaç adet ?</span>
+								<input type="text" class="form-control tane" style="margin-top:5px;">
+								<input type="hidden" class="id" value="">
+								<input type="hidden" class="ad" value="">
+								<input type="hidden" class="fiyat" value="">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+								<input type="submit" value="Ekle" class="btn btn-primary add">
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!-- Modal -->
 		</div>
 		<div class="col-xs-6">
 			<div class="sepet">
