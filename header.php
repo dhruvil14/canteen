@@ -17,7 +17,7 @@ if(isset($_COOKIE['id'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
 	<script src="jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
@@ -224,11 +224,25 @@ if(isset($_COOKIE['id'])){
 					url:"islemler.php",
 					data:{siparisID},
 					success:function(data){
+						temp = 0;
 					}
 				});
 			}
+			
+			var audioElement = document.createElement('audio');
+			audioElement.setAttribute('src', 'a.mp3');
+			audioElement.load()
 
+			$.get();
+
+			audioElement.addEventListener("load", function() {
+				audioElement.play();
+			}, true);
+
+			var temp = 0;
 			$.listOrder = function(listOrder){
+				var i = 0;
+				var urunler = [];
 				$.ajax({
 					type:"POST",
 					url:"islemler.php",
@@ -246,7 +260,16 @@ if(isset($_COOKIE['id'])){
 							var ad_ = '".ownerPanel tbody tr"';
 							veri += "<td>"+ kisiAdi +"</td><td>"+ urunAdi +"</td><td>"+ adet +"</td><td>"+ tarih +"</td><td><input type='button' name='Onayla' onclick='$.orderOK("+ id +");' value='Onayla' class='btn btn-info'></td></tr>";
 							$(".ownerPanel tbody").append(veri);
+							urunler[i] = id;
+							i++;
 						});
+						if(urunler.length != temp && temp != 0){
+							if($('.oauth').attr('value') == 1){
+								audioElement.play();
+								temp = urunler.length;
+							}
+						}
+						else temp = urunler.length;
 					}
 				});
 			}

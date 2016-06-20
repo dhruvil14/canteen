@@ -5,7 +5,7 @@ else {
 	require 'islemler.php';
 }
 ?>
-<div class="container-fluid">
+<div class="container-fluid oauth" <?php if(userControl() == 1) echo "value='1'"; else echo "value='0'"; ?>>
 	<div class="row-fluid">
 
 	</div>
@@ -61,6 +61,9 @@ else {
 	</div>
 </div>
 <div class="ownerPanel" style="display:<?php if(userControl() == 0) echo 'none;'; ?>">
+	<div id="notification">
+		
+	</div>
 	<div class="responsive-table">
 		<table class="table" border="0" style="width:100%;height:300px;">
 			<thead>
